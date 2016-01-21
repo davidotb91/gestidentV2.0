@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PacienteViewDlg" widgetVar="PacienteViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewPacienteTitle}">
+            <h:form id="PacienteViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{pacienteController.selected != null}">
+                        <h:outputText value="#{bundle.ViewPacienteLabel_idPaciente}"/>
+                        <h:outputText value="#{pacienteController.selected.idPaciente}" title="#{bundle.ViewPacienteTitle_idPaciente}"/>
+                        <h:outputText value="#{bundle.ViewPacienteLabel_nombresPaciente}"/>
+                        <h:outputText value="#{pacienteController.selected.nombresPaciente}" title="#{bundle.ViewPacienteTitle_nombresPaciente}"/>
+                        <h:outputText value="#{bundle.ViewPacienteLabel_apellidosPaciente}"/>
+                        <h:outputText value="#{pacienteController.selected.apellidosPaciente}" title="#{bundle.ViewPacienteTitle_apellidosPaciente}"/>
+                        <h:outputText value="#{bundle.ViewPacienteLabel_ciPaciente}"/>
+                        <h:outputText value="#{pacienteController.selected.ciPaciente}" title="#{bundle.ViewPacienteTitle_ciPaciente}"/>
+                        <h:outputText value="#{bundle.ViewPacienteLabel_emailPaciente}"/>
+                        <h:outputText value="#{pacienteController.selected.emailPaciente}" title="#{bundle.ViewPacienteTitle_emailPaciente}"/>
+                        <h:outputText value="#{bundle.ViewPacienteLabel_telefonoFijoPaciente}"/>
+                        <h:outputText value="#{pacienteController.selected.telefonoFijoPaciente}" title="#{bundle.ViewPacienteTitle_telefonoFijoPaciente}"/>
+                        <h:outputText value="#{bundle.ViewPacienteLabel_celularPaciente}"/>
+                        <h:outputText value="#{pacienteController.selected.celularPaciente}" title="#{bundle.ViewPacienteTitle_celularPaciente}"/>
+                        <h:outputText value="#{bundle.ViewPacienteLabel_passwordPaciente}"/>
+                        <h:outputText value="#{pacienteController.selected.passwordPaciente}" title="#{bundle.ViewPacienteTitle_passwordPaciente}"/>
+                        <h:outputText value="#{bundle.ViewPacienteLabel_fechaNacimiento}"/>
+                        <h:outputText value="#{pacienteController.selected.fechaNacimiento}" title="#{bundle.ViewPacienteTitle_fechaNacimiento}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="PacienteViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

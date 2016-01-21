@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DoctorViewDlg" widgetVar="DoctorViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewDoctorTitle}">
+            <h:form id="DoctorViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{doctorController.selected != null}">
+                        <h:outputText value="#{bundle.ViewDoctorLabel_doctorPK_idDoctor}"/>
+                        <h:outputText value="#{doctorController.selected.doctorPK.idDoctor}" title="#{bundle.ViewDoctorTitle_doctorPK_idDoctor}"/>
+                        <h:outputText value="#{bundle.ViewDoctorLabel_nombresDoctor}"/>
+                        <h:outputText value="#{doctorController.selected.nombresDoctor}" title="#{bundle.ViewDoctorTitle_nombresDoctor}"/>
+                        <h:outputText value="#{bundle.ViewDoctorLabel_apellidosDoctor}"/>
+                        <h:outputText value="#{doctorController.selected.apellidosDoctor}" title="#{bundle.ViewDoctorTitle_apellidosDoctor}"/>
+                        <h:outputText value="#{bundle.ViewDoctorLabel_ciDoctor}"/>
+                        <h:outputText value="#{doctorController.selected.ciDoctor}" title="#{bundle.ViewDoctorTitle_ciDoctor}"/>
+                        <h:outputText value="#{bundle.ViewDoctorLabel_numConsultorioDoctor}"/>
+                        <h:outputText value="#{doctorController.selected.numConsultorioDoctor}" title="#{bundle.ViewDoctorTitle_numConsultorioDoctor}"/>
+                        <h:outputText value="#{bundle.ViewDoctorLabel_emailDoctor}"/>
+                        <h:outputText value="#{doctorController.selected.emailDoctor}" title="#{bundle.ViewDoctorTitle_emailDoctor}"/>
+                        <h:outputText value="#{bundle.ViewDoctorLabel_telefonoFijoDoctor}"/>
+                        <h:outputText value="#{doctorController.selected.telefonoFijoDoctor}" title="#{bundle.ViewDoctorTitle_telefonoFijoDoctor}"/>
+                        <h:outputText value="#{bundle.ViewDoctorLabel_celularDoctor}"/>
+                        <h:outputText value="#{doctorController.selected.celularDoctor}" title="#{bundle.ViewDoctorTitle_celularDoctor}"/>
+                        <h:outputText value="#{bundle.ViewDoctorLabel_fechaNacimientoDoctor}"/>
+                        <h:outputText value="#{doctorController.selected.fechaNacimientoDoctor}" title="#{bundle.ViewDoctorTitle_fechaNacimientoDoctor}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewDoctorLabel_passwordDoctor}"/>
+                        <h:outputText value="#{doctorController.selected.passwordDoctor}" title="#{bundle.ViewDoctorTitle_passwordDoctor}"/>
+                        <h:outputText value="#{bundle.ViewDoctorLabel_especialidad}"/>
+                        <h:outputText value="#{doctorController.selected.especialidad}" title="#{bundle.ViewDoctorTitle_especialidad}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="DoctorViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

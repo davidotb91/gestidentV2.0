@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DoctorEditDlg" widgetVar="DoctorEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditDoctorTitle}">
+            <h:form id="DoctorEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{doctorController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditDoctorLabel_doctorPK_idDoctor}" for="doctorPK_idDoctor" />
+                        <p:inputText id="doctorPK_idDoctor" value="#{doctorController.selected.doctorPK.idDoctor}" title="#{bundle.EditDoctorTitle_doctorPK_idDoctor}" required="true" requiredMessage="#{bundle.EditDoctorRequiredMessage_doctorPK_idDoctor}"/>
+                        <p:outputLabel value="#{bundle.EditDoctorLabel_nombresDoctor}" for="nombresDoctor" />
+                        <p:inputText id="nombresDoctor" value="#{doctorController.selected.nombresDoctor}" title="#{bundle.EditDoctorTitle_nombresDoctor}" required="true" requiredMessage="#{bundle.EditDoctorRequiredMessage_nombresDoctor}"/>
+                        <p:outputLabel value="#{bundle.EditDoctorLabel_apellidosDoctor}" for="apellidosDoctor" />
+                        <p:inputText id="apellidosDoctor" value="#{doctorController.selected.apellidosDoctor}" title="#{bundle.EditDoctorTitle_apellidosDoctor}" required="true" requiredMessage="#{bundle.EditDoctorRequiredMessage_apellidosDoctor}"/>
+                        <p:outputLabel value="#{bundle.EditDoctorLabel_ciDoctor}" for="ciDoctor" />
+                        <p:inputText id="ciDoctor" value="#{doctorController.selected.ciDoctor}" title="#{bundle.EditDoctorTitle_ciDoctor}" required="true" requiredMessage="#{bundle.EditDoctorRequiredMessage_ciDoctor}"/>
+                        <p:outputLabel value="#{bundle.EditDoctorLabel_numConsultorioDoctor}" for="numConsultorioDoctor" />
+                        <p:inputText id="numConsultorioDoctor" value="#{doctorController.selected.numConsultorioDoctor}" title="#{bundle.EditDoctorTitle_numConsultorioDoctor}" required="true" requiredMessage="#{bundle.EditDoctorRequiredMessage_numConsultorioDoctor}"/>
+                        <p:outputLabel value="#{bundle.EditDoctorLabel_emailDoctor}" for="emailDoctor" />
+                        <p:inputText id="emailDoctor" value="#{doctorController.selected.emailDoctor}" title="#{bundle.EditDoctorTitle_emailDoctor}" required="true" requiredMessage="#{bundle.EditDoctorRequiredMessage_emailDoctor}"/>
+                        <p:outputLabel value="#{bundle.EditDoctorLabel_telefonoFijoDoctor}" for="telefonoFijoDoctor" />
+                        <p:inputText id="telefonoFijoDoctor" value="#{doctorController.selected.telefonoFijoDoctor}" title="#{bundle.EditDoctorTitle_telefonoFijoDoctor}" required="true" requiredMessage="#{bundle.EditDoctorRequiredMessage_telefonoFijoDoctor}"/>
+                        <p:outputLabel value="#{bundle.EditDoctorLabel_celularDoctor}" for="celularDoctor" />
+                        <p:inputText id="celularDoctor" value="#{doctorController.selected.celularDoctor}" title="#{bundle.EditDoctorTitle_celularDoctor}" required="true" requiredMessage="#{bundle.EditDoctorRequiredMessage_celularDoctor}"/>
+                        <p:outputLabel value="#{bundle.EditDoctorLabel_fechaNacimientoDoctor}" for="fechaNacimientoDoctor" />
+                        <p:calendar id="fechaNacimientoDoctor" pattern="MM/dd/yyyy" value="#{doctorController.selected.fechaNacimientoDoctor}" title="#{bundle.EditDoctorTitle_fechaNacimientoDoctor}" required="true" requiredMessage="#{bundle.EditDoctorRequiredMessage_fechaNacimientoDoctor}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditDoctorLabel_passwordDoctor}" for="passwordDoctor" />
+                        <p:inputText id="passwordDoctor" value="#{doctorController.selected.passwordDoctor}" title="#{bundle.EditDoctorTitle_passwordDoctor}" required="true" requiredMessage="#{bundle.EditDoctorRequiredMessage_passwordDoctor}"/>
+                        <p:outputLabel value="#{bundle.EditDoctorLabel_especialidad}" for="especialidad" />
+                        <p:selectOneMenu id="especialidad" value="#{doctorController.selected.especialidad}" required="true" requiredMessage="#{bundle.EditDoctorRequiredMessage_especialidad}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{especialidadController.itemsAvailableSelectOne}"
+                                           var="especialidadItem"
+                                           itemValue="#{especialidadItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{doctorController.update}" value="#{bundle.Save}" update="display,:DoctorListForm:datalist,:growl" oncomplete="handleSubmit(args, 'DoctorEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DoctorEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

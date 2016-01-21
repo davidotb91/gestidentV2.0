@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AdministradorViewDlg" widgetVar="AdministradorViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewAdministradorTitle}">
+            <h:form id="AdministradorViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{administradorController.selected != null}">
+                        <h:outputText value="#{bundle.ViewAdministradorLabel_idAdministrador}"/>
+                        <h:outputText value="#{administradorController.selected.idAdministrador}" title="#{bundle.ViewAdministradorTitle_idAdministrador}"/>
+                        <h:outputText value="#{bundle.ViewAdministradorLabel_ciAdministrador}"/>
+                        <h:outputText value="#{administradorController.selected.ciAdministrador}" title="#{bundle.ViewAdministradorTitle_ciAdministrador}"/>
+                        <h:outputText value="#{bundle.ViewAdministradorLabel_nombreAdiministrador}"/>
+                        <h:outputText value="#{administradorController.selected.nombreAdiministrador}" title="#{bundle.ViewAdministradorTitle_nombreAdiministrador}"/>
+                        <h:outputText value="#{bundle.ViewAdministradorLabel_passwordAdministrador}"/>
+                        <h:outputText value="#{administradorController.selected.passwordAdministrador}" title="#{bundle.ViewAdministradorTitle_passwordAdministrador}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="AdministradorViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
