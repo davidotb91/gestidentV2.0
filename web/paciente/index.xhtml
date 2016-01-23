@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template_1.xhtml">
+        <ui:define name="title">
+            <h:outputText value="GestiDent"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form >
+                <H5 align="right">
+                    <p:button icon="ui-icon-key" outcome="/faces/Login.xhtml" value="Login"></p:button>
+                    <p:commandButton id="createButton" icon="ui-icon-plus" value="Registrar" actionListener="#{pacienteController.prepareCreate}" update=":PacienteCreateForm" oncomplete="PF('PacienteCreateDialog').show()"/>
+                </H5>
+                
+            </h:form>
+            
+            <h:form id="PacienteListForm">
+                
+<!--                <p:panel header="#{bundle.ListPacienteTitle}">-->
+                <p:dataTable id="datalist" value=""
+                             >
+
+                </p:dataTable>
+
+
+                <!--                </p:panel>-->
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+
+        </ui:define>
+    </ui:composition>
+
+</html>
