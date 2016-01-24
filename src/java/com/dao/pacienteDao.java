@@ -19,7 +19,7 @@ public class pacienteDao {
     private EntityManagerFactory emf;
 
     public pacienteDao() {
-        emf = Persistence.createEntityManagerFactory("gestidentV1.7PU");
+        emf = Persistence.createEntityManagerFactory("gestidentV2.0PU");
     }
 
     public Paciente validarPaciente(String ciPaciente, String passwordPaciente ) {
