@@ -19,6 +19,7 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 
 public class pacienteControl {
+    public int id;
     public String nombre;
     public String apellido;
     public String correo;
@@ -35,14 +36,15 @@ public class pacienteControl {
         pacienteDao paciente = new pacienteDao();
         Paciente p = paciente.validarPaciente(login, password);
         if (p != null) {
+            id = p.getIdPaciente();
             nombre = p.getNombresPaciente();
             apellido= p.getApellidosPaciente();
             correo= p.getEmailPaciente();
             password2 = p.getPasswordPaciente();
             mapapaccientes();
-            return "home2";
+            return "turno/List_1";
         } else {
-            return "index";
+            return "";
         }
     }
     
@@ -81,6 +83,9 @@ public class pacienteControl {
     public void setPassword(String password) {
         this.password = password;
     }
+     public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNombre() {
         return nombre;
@@ -101,4 +106,12 @@ public class pacienteControl {
     public String getPassword() {
         return password;
     }
+
+    public int getId() {
+        return id;
+    }
+
+   
+    
+    
 }
