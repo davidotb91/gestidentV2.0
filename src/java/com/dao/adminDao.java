@@ -20,7 +20,7 @@ public class adminDao {
     private EntityManagerFactory emf;
 
     public adminDao() {
-        emf = Persistence.createEntityManagerFactory("gestidentV1.7PU");
+        emf = Persistence.createEntityManagerFactory("gestidentV2.0PU");
     }
 
     public Administrador validarAdmin(String ciAdministrador, String passwordAdministrador ) {
