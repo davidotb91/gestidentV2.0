@@ -4,11 +4,10 @@
     Author     : stand
 --%>
 
-<%@page import="com.ec.controller.PacienteController"%>
-
-
-<%@page import="javax.faces.context.FacesContext"%>
 <%@page import="com.ec.sesion.Email"%>
+<%@page import="com.dao.pacienteControl"%>
+<%@page import="javax.faces.context.FacesContext"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,6 +18,8 @@
     <body>
         hola
         <%
+      
+            
             Email email = new Email();
             String de = "gestident.sw2@gmail.com";
             
