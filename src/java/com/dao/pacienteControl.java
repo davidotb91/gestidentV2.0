@@ -6,6 +6,8 @@
 package com.dao;
 
 import com.ec.entity.Paciente;
+import java.util.HashMap;
+import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -23,7 +25,11 @@ public class pacienteControl {
     public String login;
     public String password;
     public String password2;
+    private Map<String,String> pacientes;
 
+    public Map<String, String> getPacientes() {
+        return pacientes;
+    }
     
     public String validarLogin() throws Exception{
         pacienteDao paciente = new pacienteDao();
@@ -33,10 +39,18 @@ public class pacienteControl {
             apellido= p.getApellidosPaciente();
             correo= p.getEmailPaciente();
             password2 = p.getPasswordPaciente();
+            mapapaccientes();
             return "home2";
         } else {
             return "index";
         }
+    }
+    
+    public void mapapaccientes(){
+        pacienteDao paciente = new pacienteDao();
+        Paciente p = paciente.validarPaciente(login, password);
+        pacientes  = new HashMap<String, String>();
+        pacientes.put(p.getNombresPaciente(), p.getNombresPaciente());
     }
     
     
