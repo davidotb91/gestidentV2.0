@@ -8,14 +8,14 @@
 
     <ui:composition>
 
-        <p:dialog id="TurnoEditDlg" widgetVar="TurnoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditTurnoTitle}">
-            <h:form id="TurnoEditForm">
+        <p:dialog id="TurnoCancelarDlg" widgetVar="TurnoCancelarDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditTurnoTitle}">
+            <h:form id="TurnoCancelarForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{turnoController.selected != null}">
                         <p:outputLabel value="#{bundle.EditTurnoLabel_turnoPK_idturno}" for="turnoPK_idturno"/>
                         <p:inputText id="turnoPK_idturno" disabled="true" value="#{turnoController.selected.turnoPK.idturno}" title="#{bundle.EditTurnoTitle_turnoPK_idturno}" required="true" requiredMessage="#{bundle.EditTurnoRequiredMessage_turnoPK_idturno}"/>
                         <p:outputLabel value="#{bundle.EditTurnoLabel_estado}" for="estado" />
-                        <p:inputText id="estado" value="#{turnoController.selected.estado='RESERVADO'}" disabled="true" title="#{bundle.EditTurnoTitle_estado}" />
+                        <p:inputText id="estado" value="#{turnoController.selected.estado='LIBRE'}" disabled="true" title="#{bundle.EditTurnoTitle_estado}" />
                         <p:outputLabel value="#{bundle.EditTurnoLabel_paciente}" for="paciente" rendered="null"/>
                         <p:selectOneMenu id="paciente" rendered="null" value="#{turnoController.selected.paciente}" required="true" requiredMessage="#{bundle.EditTurnoRequiredMessage_paciente}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
@@ -25,8 +25,8 @@
                         </p:selectOneMenu>
       
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{turnoController.update}" value="GUARDAR" update="display,:TurnoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TurnoEditDialog');"/>
-                    <p:commandButton value="CANCELAR" onclick="TurnoEditDialog.hide()"/>
+                    <p:commandButton actionListener="#{turnoController.update}" value="GUARDAR" update="display,:TurnoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TurnoCancelarDialog');"/>
+                    <p:commandButton value="CANCELAR" onclick="TurnoCancelarDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>
