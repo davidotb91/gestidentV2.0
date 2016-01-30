@@ -29,7 +29,7 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="Código"/>
+                                <h:outputText value="Turno"/>
                             </f:facet>
                             <h:outputText value="#{item.turnoPK.idturno}"/>
                         </p:column>
@@ -69,7 +69,7 @@
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{turnoController.prepareCreate}" update=":TurnoCreateForm" oncomplete="PF('TurnoCreateDialog').show()" rendered="null"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":TurnoViewForm" oncomplete="PF('TurnoViewDialog').show()" disabled="#{empty turnoController.selected}" />
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="Hacer Reserva" update=":TurnoEditForm" oncomplete="PF('TurnoEditDialog').show()" disabled="#{empty turnoController.selected}" />
-                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" update=":TurnoCancelarForm" oncomplete="PF('TurnoCancelarDialog').show()" disabled="#{empty turnoController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" update=":TurnoCancelarForm :growl,datalist" oncomplete="PF('TurnoCancelarDialog').show()" disabled="#{empty turnoController.selected}"/>
                         </f:facet>
                     </p:dataTable>
 <!--                    <p:selectOneMenu id="pacientep" value="#{usuariop.nombre}" style="width:150px">

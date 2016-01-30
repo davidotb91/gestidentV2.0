@@ -13,28 +13,34 @@ and open the template in the editor.
       >
     <h:head>
         <title>Login</title>
-            <h:outputStylesheet name="css/login.css"/>
-    
+        <h:outputStylesheet name="css/login.css"/>
+
     </h:head>
+
     <h:body>
         <div class="conteiner">
-        <h:form>
-            <p:growl id="growl" showDetail="true" life="3000" />
-            <p:panel header="Ingresar Usuario y Clave     "  >
-                
-            <h:panelGrid id="grid" columns="3" cellpadding="1">
-                <p:outputLabel for="user">Usuario: </p:outputLabel>
-                <p:inputText id="user" value="#{usuariop.login}" size="20" required="true" requiredMessage="Campo obligatorio" />
-                <p:message for="user" display="icon"/>
-                <p:outputLabel for="password">Contraseña:</p:outputLabel>
-                <p:password id="password" value="#{usuariop.password}" size="20" required="true" requiredMessage="Campo obligatorio" />
-                    <p:message for="password" display="icon"/>
-            </h:panelGrid>
-            <p:commandButton value="Ingresar" action="#{usuariop.validarLogin()}" update="grid"/>
-            <p:commandButton value="Olvide Mi clave" action="restaurar.xhtml" update="grid"/>
-            </p:panel>
-        </h:form>
-            </div>
-    <!--<p:link outcome="/cita/List" value="ESTO TENDRIA KE SER EL BOTON INGRESAR, REDIRECCIONA AL HOME"/>-->
+            <h:form>
+                <p:growl id="growl" showDetail="true" life="3000" />
+                <p:panel header="Ingresar Usuario y Clave     "  >
+
+                    <h:panelGrid id="grid" columns="3" cellpadding="1">
+                        <p:outputLabel for="user">Cedula: </p:outputLabel>
+                        <p:inputText id="user" value="#{usuariop.login}" size="20" required="true" requiredMessage="Campo obligatorio" />
+                        <p:message for="user" display="icon"/>
+                        
+                        <p:outputLabel for="password">Contraseña:</p:outputLabel>
+                        <p:password id="password" value="#{usuariop.password}" size="20" required="true" requiredMessage="Campo obligatorio" />
+                        <p:message for="password" display="icon"/>
+                        
+                    </h:panelGrid>
+                    <p:commandButton value="Ingresar" action="#{usuariop.validarLogin()}" update="grid"/>
+                    <!--<p:commandButton value="Olvide Mi clave" action="paciente/restaurar.xhtml" update="grid"/>-->
+                    <!--<p:commandLink outcome="/paciente/restaurarContra.xhtml" value="Olvide mi pasword"/>-->
+                    
+                </p:panel>
+            </h:form>
+        </div>
+        <!--<p:link outcome="/cita/List" value="ESTO TENDRIA KE SER EL BOTON INGRESAR, REDIRECCIONA AL HOME"/>-->
+        <!--<ui:include src="paciente/restaurar.xhtml"/>-->
     </h:body>
 </html>

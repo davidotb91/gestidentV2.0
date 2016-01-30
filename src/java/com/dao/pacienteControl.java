@@ -26,6 +26,8 @@ public class pacienteControl {
     public String login;
     public String password;
     public String password2;
+    
+    
     private Map<String,String> pacientes;
 
     public Map<String, String> getPacientes() {

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <title>Login</title>
+        <h:outputStylesheet name="css/login.css"/>
+
+    </h:head>
+
+    <h:body>
+        <div class="conteiner">
+            <h:form>
+                <p:growl id="growl" showDetail="true" life="3000" />
+                <p:panel header="Ingresar Usuario y Clave     "  >
+
+                    <h:panelGrid id="grid" columns="3" cellpadding="1">
+                        <p:outputLabel for="user">Cedula: </p:outputLabel>
+                        <p:inputText id="user" value="#{usuariop.login}" size="20" required="true" requiredMessage="Campo obligatorio" />
+                        <p:message for="user" display="icon"/>
+                        
+                        <p:outputLabel for="password">Contraseña:</p:outputLabel>
+                        <p:password id="password" value="#{usuariop.password}" size="20" required="true" requiredMessage="Campo obligatorio" />
+                        <p:message for="password" display="icon"/>
+                        
+                    </h:panelGrid>
+                    <p:commandButton value="Ingresar" action="#{usuariop.validarLogin()}" update="grid"/>
+                    <!--<p:commandButton value="Olvide Mi clave" action="paciente/restaurar.xhtml" update="grid"/>-->
+                    <!--<p:commandLink outcome="/paciente/restaurarContra.xhtml" value="Olvide mi pasword"/>-->
+                    
+                </p:panel>
+            </h:form>
+        </div>
+        <!--<p:link outcome="/cita/List" value="ESTO TENDRIA KE SER EL BOTON INGRESAR, REDIRECCIONA AL HOME"/>-->
+        <!--<ui:include src="paciente/restaurar.xhtml"/>-->
+    </h:body>
+</html>

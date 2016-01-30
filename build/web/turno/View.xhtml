@@ -21,11 +21,11 @@
                         <h:outputText value="#{bundle.ViewTurnoLabel_estado}"/>
                         <h:outputText value="#{turnoController.selected.estado}" title="#{bundle.ViewTurnoTitle_estado}"/>
                         <h:outputText value="#{bundle.ViewTurnoLabel_paciente}"/>
-                        <h:outputText value="#{turnoController.selected.paciente}" title="#{bundle.ViewTurnoTitle_paciente}"/>
+                        <h:outputText value="#{turnoController.selected.paciente.nombresPaciente} #{turnoController.selected.paciente.apellidosPaciente}" title="#{bundle.ViewTurnoTitle_paciente}"/>
                         <h:outputText value="#{bundle.ViewTurnoLabel_especialidad}"/>
-                        <h:outputText value="#{turnoController.selected.especialidad}" title="#{bundle.ViewTurnoTitle_especialidad}"/>
+                        <h:outputText value="#{turnoController.selected.especialidad.detalleEspecialidad}" title="#{bundle.ViewTurnoTitle_especialidad}"/>
                         <h:outputText value="#{bundle.ViewTurnoLabel_doctor}"/>
-                        <h:outputText value="#{turnoController.selected.doctor}" title="#{bundle.ViewTurnoTitle_doctor}"/>
+                        <h:outputText value="#{turnoController.selected.doctor.nombresDoctor} #{turnoController.selected.doctor.apellidosDoctor}" title="#{bundle.ViewTurnoTitle_doctor}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="TurnoViewDialog.hide()"/>
                 </h:panelGroup>

@@ -29,6 +29,8 @@
             String mensaje = "Bienvenido al Sistema GestiDent"
                     + "\n\nUsted puede ingresar al sistema mediante su numero de Cedula proporcionado"
                     + "\n\nPassword: "+request.getParameter("contra");
+            
+            
             String asunto = "Bienvenido a GestiDent";
             
             boolean resultado = email.enviarCorreo(de, clave, para, mensaje, asunto);

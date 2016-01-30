@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TurnoCancelarDlg" widgetVar="TurnoCancelarDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditTurnoTitle}">
+            <h:form id="TurnoCancelarForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{turnoController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditTurnoLabel_turnoPK_idturno}" for="turnoPK_idturno"/>
+                        <p:inputText id="turnoPK_idturno" disabled="true" value="#{turnoController.selected.turnoPK.idturno}" title="#{bundle.EditTurnoTitle_turnoPK_idturno}" required="true" requiredMessage="#{bundle.EditTurnoRequiredMessage_turnoPK_idturno}"/>
+                        <p:outputLabel value="#{bundle.EditTurnoLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{turnoController.selected.estado='LIBRE'}" disabled="true" title="#{bundle.EditTurnoTitle_estado}" />
+                        <p:outputLabel value="#{bundle.EditTurnoLabel_paciente}" for="paciente" rendered="null"/>
+                        <p:selectOneMenu id="paciente" rendered="null" value="#{turnoController.selected.paciente}" required="true" requiredMessage="#{bundle.EditTurnoRequiredMessage_paciente}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{pacienteController.itemsAvailableSelectOne}"
+                                           var="pacienteItem" 
+                                           itemValue="#{pacienteItem}"/>
+                        </p:selectOneMenu>
+      
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{turnoController.update}" value="GUARDAR" update="display,:TurnoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TurnoCancelarDialog');"/>
+                    <p:commandButton value="CANCELAR" onclick="TurnoCancelarDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

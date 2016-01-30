@@ -27,12 +27,12 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
+<!--                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTurnoTitle_turnoPK_idturno}"/>
                             </f:facet>
                             <h:outputText value="#{item.turnoPK.idturno}"/>
-                        </p:column>
+                        </p:column>-->
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTurnoTitle_fechahoraturno}"/>
@@ -47,23 +47,23 @@
                             </f:facet>
                             <h:outputText value="#{item.estado}"/>
                         </p:column>
-                        <p:column>
+<!--                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTurnoTitle_paciente}"/>
                             </f:facet>
                             <h:outputText value="#{item.paciente}"/>
-                        </p:column>
+                        </p:column>-->
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTurnoTitle_especialidad}"/>
                             </f:facet>
-                            <h:outputText value="#{item.especialidad}"/>
+                            <h:outputText value="#{item.especialidad.detalleEspecialidad}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTurnoTitle_doctor}"/>
                             </f:facet>
-                            <h:outputText value="#{item.doctor}"/>
+                            <h:outputText value="#{item.doctor.nombresDoctor} #{item.doctor.apellidosDoctor}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{turnoController.prepareCreate}" update=":TurnoCreateForm" oncomplete="PF('TurnoCreateDialog').show()"/>
