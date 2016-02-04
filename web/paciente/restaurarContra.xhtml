@@ -29,20 +29,13 @@ and open the template in the editor.
                             <p><input type="text" name="para"/></p>
                         </p:inputText>
                         <p:message for="user" display="icon"/>
-                        
-                        <!--<p:link id="contra" value="#{usuariop.password}"  />-->
-                        
-                        
-                        
-                       
+                                               
                     </h:panelGrid>
-                    <p:commandButton value="Enviar" action="#{usuariop.validarLogin()}" actionListener="resultadoRestaurar.jsp"  update="grid"/>
-                    <!--<p:commandButton value="Olvide Mi clave" action="paciente/restaurar.xhtml" update="grid"/>-->
-                    <!--<p:commandButton value="Enviar" action="resultado.jsp"/>-->
+                    <p:commandButton value="Enviar Email" actionListener="#{usuariop.recuperarContra()}" action="resultadoRestaurar.jsp"  update="grid"/>
+                    
                 </p:panel>
             </h:form>
         </div>
-        <!--<p:link outcome="/cita/List" value="ESTO TENDRIA KE SER EL BOTON INGRESAR, REDIRECCIONA AL HOME"/>-->
-        <!--<ui:include src="paciente/restaurar.xhtml"/>-->
+        
     </h:body>
 </html>

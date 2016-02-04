@@ -21,7 +21,7 @@
             Email email = new Email();
             pacienteControl paciente = new pacienteControl();
             String de = "gestident.sw2@gmail.com"; 
-            String pasword = paciente.getPassword2();
+            String pasword = paciente.password2;
             String clave = "pichones";
             String para = request.getParameter("para");
             System.out.println(para);

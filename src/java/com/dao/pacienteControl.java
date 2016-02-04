@@ -26,6 +26,7 @@ public class pacienteControl {
     public String login;
     public String password;
     public String password2;
+    public String contraRecuperar;
     
     
     private Map<String,String> pacientes;
@@ -49,7 +50,18 @@ public class pacienteControl {
             return "";
         }
     }
-    
+    public String recuperarContra() throws Exception{
+        pacienteDao paciente = new pacienteDao();
+        Paciente p = paciente.recuperarContraPaciente(correo);
+        if (p != null) {
+            
+            contraRecuperar = p.getPasswordPaciente();
+            mapapaccientes();
+            return "/faces/Login.xhtml";
+        } else {
+            return "";
+        }
+    }
     public void mapapaccientes(){
         pacienteDao paciente = new pacienteDao();
         Paciente p = paciente.validarPaciente(login, password);

@@ -34,13 +34,13 @@ and open the template in the editor.
                         
                     </h:panelGrid>
                     <p:commandButton value="Ingresar" action="#{usuariop.validarLogin()}" update="grid"/>
-                    <!--<p:commandButton value="Olvide Mi clave" action="paciente/restaurar.xhtml" update="grid"/>-->
-                    <!--<p:commandLink outcome="/paciente/restaurarContra.xhtml" value="Olvide mi pasword"/>-->
+                    <p:link outcome="/paciente/restaurarContra.xhtml" value=" Olvide mi password"/>
+                    <!--<p:commandLink onclick="/paciente/restaurarContra.xhtml" value="Olvide mi pasword"/>-->
                     
                 </p:panel>
             </h:form>
         </div>
-        <!--<p:link outcome="/cita/List" value="ESTO TENDRIA KE SER EL BOTON INGRESAR, REDIRECCIONA AL HOME"/>-->
+        
         <!--<ui:include src="paciente/restaurar.xhtml"/>-->
     </h:body>
 </html>
