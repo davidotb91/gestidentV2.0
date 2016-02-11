@@ -19,6 +19,10 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 
 public class pacienteControl {
+    
+    
+    public static String password3; 
+    
     public int id;
     public String nombre;
     public String apellido;
@@ -27,7 +31,8 @@ public class pacienteControl {
     public String password;
     public String password2;
     public String contraRecuperar;
-    
+    public static String regresar="/faces/Login.xhtml";
+        
     
     private Map<String,String> pacientes;
 
@@ -51,16 +56,16 @@ public class pacienteControl {
         }
     }
     public String recuperarContra() throws Exception{
-        pacienteDao paciente = new pacienteDao();
+        recuperarDao paciente = new recuperarDao();
         Paciente p = paciente.recuperarContraPaciente(correo);
-        if (p != null) {
+         if (p != null) {
+            password3 = p.getPasswordPaciente();
             
-            contraRecuperar = p.getPasswordPaciente();
-            mapapaccientes();
-            return "/faces/Login.xhtml";
-        } else {
+            return "resultadoRestaurar.jsp";
+             } else {
             return "";
-        }
+        }    
+        
     }
     public void mapapaccientes(){
         pacienteDao paciente = new pacienteDao();

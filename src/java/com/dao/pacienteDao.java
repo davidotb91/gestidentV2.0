@@ -35,16 +35,7 @@ public class pacienteDao {
         return paciente;
     }
     
-    public Paciente recuperarContraPaciente(String email ) {
-        Paciente paciente;
-        EntityManager em= emf.createEntityManager();
-        String sql="SELECT p FROM Paciente p WHERE p.emailPaciente=:emailPaciente"; 
-        Query query =em.createQuery(sql);
-        query.setParameter("emailPaciente", email);
-        
-        paciente= (Paciente) query.getSingleResult();
-                
-        return paciente;
-    }
+
+    
 
 }

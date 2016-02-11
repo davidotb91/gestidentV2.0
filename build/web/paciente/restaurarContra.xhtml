@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -12,30 +12,32 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui"
       >
     <h:head>
-        <title>Login</title>
+        <title>Recuperar</title>
         <h:outputStylesheet name="css/login.css"/>
-
     </h:head>
 
     <h:body>
         <div class="conteiner">
             <h:form>
-                <p:growl id="growl" showDetail="true" life="3000" />
-                <p:panel header="Ingresar Usuario y Clave     "  >
+                <p:growl id="grow2" showDetail="true" life="3000" />
+                <p:panel header="Recupar     "  >
 
-                    <h:panelGrid id="grid" columns="3" cellpadding="1">
-                        <p:outputLabel for="user">Ingrese su email </p:outputLabel>
-                        <p:inputText id="user" value="#{usuariop.login}" size="20" required="true" requiredMessage="Campo obligatorio" placeholder="Confirme su e-mail">
-                            <p><input type="text" name="para"/></p>
+                    <h:panelGrid id="grid1" columns="3" cellpadding="1">
+                        <p:outputLabel for="user">Escriba su Correo: </p:outputLabel>
+                        <p:inputText id="user" value="#{usuariop.correo}" size="20" required="true" requiredMessage="Campo obligatorio" placeholder="Confirme su e-mail">
+                            <p><input type="text" name="para" required="true"/>  
                         </p:inputText>
                         <p:message for="user" display="icon"/>
-                                               
+                                             
+                        
                     </h:panelGrid>
-                    <p:commandButton value="Enviar Email" actionListener="#{usuariop.recuperarContra()}" action="resultadoRestaurar.jsp"  update="grid"/>
-                    
+                    <p:commandButton value="Ingresar" action="#{usuariop.recuperarContra()}" update="grid1"/>
+                    <p:link value=" Regresar a Login" outcome="/faces/Login.xhtml" />
+                    <!--action="resultadoRestaurar.jsp"<p:commandink onclick="/paciente/restaurarContra.xhtml" value="Olvide mi pasword"/>-->
                 </p:panel>
             </h:form>
         </div>
         
+      
     </h:body>
 </html>

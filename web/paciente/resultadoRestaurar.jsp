@@ -16,12 +16,11 @@
         <title>JSP Page</title>
     </head>
     <body>
-        hola
+        
         <%
             Email email = new Email();
-            pacienteControl paciente = new pacienteControl();
             String de = "gestident.sw2@gmail.com"; 
-            String pasword = paciente.password2;
+            String pasword = pacienteControl.password3;
             String clave = "pichones";
             String para = request.getParameter("para");
             System.out.println(para);
@@ -29,12 +28,15 @@
             String asunto = "Restaurar password - GestiDent";
             
             boolean resultado = email.enviarCorreo(de, clave, para, mensaje, asunto);
+            
+            
             if (resultado){
-                out.print("CORREO ENVIADO BIEN"+ "\n\n"+"<a href='index.xhtml'>Volver al index</a>");
+                out.print("CORREO ENVIADO BIEN"+ "\n\n"+"<a href='/faces/Login.html'>Volver al index</a>");
                 
             } else {
                 out.print("CORREO ENVIADO MAL KE VRG"+ "\n\n"+"<a href='index.xhtml'>Volver al index</a>");
             }
         %>
+        
     </body>
 </html>

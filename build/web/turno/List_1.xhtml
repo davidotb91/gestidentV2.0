@@ -72,13 +72,7 @@
                             <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" update=":TurnoCancelarForm :growl,datalist" oncomplete="PF('TurnoCancelarDialog').show()" disabled="#{empty turnoController.selected}"/>
                         </f:facet>
                     </p:dataTable>
-<!--                    <p:selectOneMenu id="pacientep" value="#{usuariop.nombre}" style="width:150px">
-                <p:ajax listener="#{dropdownView.onCountryChange}" update="city" />
-                <f:selectItem itemLabel="Paciente" itemValue="" noSelectionOption="true" />
-                <f:selectItems value="#{usuariop.pacientes}" />
-                
-            </p:selectOneMenu>
-                     <h:outputLabel value="Usuario Actual:  #{usuariop.nombre} #{usuariop.apellido}"  /><br/>-->
+
                 </p:panel>
             </h:form>
 
