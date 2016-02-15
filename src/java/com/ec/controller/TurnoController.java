@@ -82,6 +82,7 @@ public class TurnoController implements Serializable {
     public List<Turno> getItems() {
         if (items == null) {
             items = getFacade().findAll();
+            //items = getFacade().findAll();
         }
         return items;
     }

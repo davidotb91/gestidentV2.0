@@ -29,7 +29,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "turno")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Turno.findAll", query = "SELECT t FROM Turno t"),
+    @NamedQuery(name = "Turno.findAll", query = "SELECT t FROM Turno t WHERE t.estado LIKE 'LIBRE'"),
+    //@NamedQuery(name = "Turno.findDisponibilidad", query = "SELECT t FROM Turno t WHERE t.estado LIKE 'LIBRE'"),
     @NamedQuery(name = "Turno.findByIdturno", query = "SELECT t FROM Turno t WHERE t.turnoPK.idturno = :idturno"),
     @NamedQuery(name = "Turno.findByFechahoraturno", query = "SELECT t FROM Turno t WHERE t.fechahoraturno = :fechahoraturno"),
     @NamedQuery(name = "Turno.findByEstado", query = "SELECT t FROM Turno t WHERE t.estado = :estado"),

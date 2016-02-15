@@ -1,11 +1,14 @@
 package com.ec.controller;
 
+import com.dao.recuperarDao;
 import com.ec.entity.Paciente;
 import com.ec.controller.util.JsfUtil;
 import com.ec.controller.util.JsfUtil.PersistAction;
+import com.ec.sesion.MailerClass;
 import com.ec.sesion.PacienteFacade;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -14,6 +17,7 @@ import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -60,6 +64,7 @@ public class PacienteController implements Serializable {
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
         }
+        enviarContra();
     }
 
     public void update() {
@@ -160,6 +165,22 @@ public class PacienteController implements Serializable {
             }
         }
 
+    }
+    
+        public String enviarContra() {
+        try {
+            recuperarDao paciente = new recuperarDao();
+            Paciente p = paciente.recuperarContraPaciente(selected.getEmailPaciente());
+            MailerClass mail = new MailerClass();
+            List<String> contactos = new ArrayList<String>();
+            contactos.add(p.getEmailPaciente());
+            mail.sendMail(contactos, p.getPasswordPaciente(),"");
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Password restaurado", "Exito"));
+        } catch (Exception e) {
+        }
+
+        return null;
     }
 
 }

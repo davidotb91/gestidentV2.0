@@ -12,7 +12,7 @@
             <h:form id="PacienteCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{pacienteController.selected != null}">
-                        
+
                         <p:outputLabel value="#{bundle.CreatePacienteLabel_nombresPaciente}" for="nombresPaciente" />
                         <p:inputText id="nombresPaciente" value="#{pacienteController.selected.nombresPaciente}" title="#{bundle.CreatePacienteTitle_nombresPaciente}" required="true" requiredMessage="#{bundle.CreatePacienteRequiredMessage_nombresPaciente}"/>
                         <p:outputLabel value="#{bundle.CreatePacienteLabel_apellidosPaciente}" for="apellidosPaciente" />
@@ -20,31 +20,30 @@
                         <p:outputLabel value="#{bundle.CreatePacienteLabel_ciPaciente}" for="ciPaciente" />
                         <p:inputText id="ciPaciente" value="#{pacienteController.selected.ciPaciente}" title="#{bundle.CreatePacienteTitle_ciPaciente}" required="true" requiredMessage="#{bundle.CreatePacienteRequiredMessage_ciPaciente}"/>
                         <p:outputLabel value="#{bundle.CreatePacienteLabel_emailPaciente}" for="emailPaciente" />
-                        
-                        
+
+
                         <p:inputText id="emailPaciente" value="#{pacienteController.selected.emailPaciente}" title="#{bundle.CreatePacienteTitle_emailPaciente}" required="true" requiredMessage="#{bundle.CreatePacienteRequiredMessage_emailPaciente}" placeholder="Confirme su e-mail">
                             <p><input type="text" name="para"/></p>  
                         </p:inputText>
-                        
-                        
-                        
+
+
+
                         <p:outputLabel value="#{bundle.CreatePacienteLabel_telefonoFijoPaciente}" for="telefonoFijoPaciente" />
                         <p:inputText id="telefonoFijoPaciente" value="#{pacienteController.selected.telefonoFijoPaciente}" title="#{bundle.CreatePacienteTitle_telefonoFijoPaciente}" required="true" requiredMessage="#{bundle.CreatePacienteRequiredMessage_telefonoFijoPaciente}"/>
                         <p:outputLabel value="#{bundle.CreatePacienteLabel_celularPaciente}" for="celularPaciente" />
                         <p:inputText id="celularPaciente" value="#{pacienteController.selected.celularPaciente}" title="#{bundle.CreatePacienteTitle_celularPaciente}" />
                         <p:outputLabel value="#{bundle.CreatePacienteLabel_passwordPaciente}" for="passwordPaciente" />
-                        
+
                         <p:password id="passwordPaciente" value="#{pacienteController.selected.passwordPaciente}" title="#{bundle.CreatePacienteTitle_passwordPaciente}" required="true" requiredMessage="#{bundle.CreatePacienteRequiredMessage_passwordPaciente}" placeholder="Confirme su contraseña">
                             <p><input type="password" name="contra"/></p>  
                         </p:password>
-                        
-                        
-                        
+
+
+
                         <p:outputLabel value="#{bundle.CreatePacienteLabel_fechaNacimiento}" for="fechaNacimiento" />
                         <p:calendar id="fechaNacimiento" pattern="MM/dd/yyyy" value="#{pacienteController.selected.fechaNacimiento}" title="#{bundle.EditPacienteTitle_fechaNacimiento}" required="true" requiredMessage="#{bundle.EditPacienteRequiredMessage_fechaNacimiento}" showOn="button"/>
                     </p:panelGrid>
                     <p:commandButton type="submit" action="resultado.jsp" actionListener="#{pacienteController.create}" value="#{bundle.Save}" update="display,:PacienteListForm:datalist,:growl" oncomplete="handleSubmit(args,'PacienteCreateDialog');"/>
-                    
                     <p:commandButton value="#{bundle.Cancel}" onclick="PacienteCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
